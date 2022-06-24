@@ -4,7 +4,6 @@ server:
     context-path: /
   tomcat:
     uri-encoding: utf-8
-
 spring:
   application:
     name: admin  # 不配置 下面的配置文件名 也是无效的
@@ -13,16 +12,14 @@ spring:
       ui:
         title:  监控中心
   cloud:
-    polaris:
-      address: grpc://10.0.0.25:8091
-      namespace: xt
-      enabled: true
+    nacos:
       discovery:
-        enabled: true
-        register: true
-        heartbeat:
-          enabled: true
-      config:
-        groups:
-          - name: admin
-            files: ["demo.yml"]
+        server-addr: 10.0.0.25:8849
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

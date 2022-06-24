@@ -18,7 +18,6 @@
 
     <properties>
         <spring.cloud.version>2020.0.5</spring.cloud.version>
-        <polaris.cloud.version>1.5.2-2020.0.5</polaris.cloud.version>
         <bitwalker.version>1.19</bitwalker.version>
         <spring.boot.admin.version>2.6.6</spring.boot.admin.version>
 
@@ -90,31 +89,19 @@
 
 
 
-        <!--  腾讯微服务 -->
-
-
-
+        <!--  nacos -->
 
         <dependency>
-            <groupId>com.tencent.cloud</groupId>
-            <artifactId>spring-cloud-tencent-polaris-loadbalancer</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2021.0.1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.tencent.cloud</groupId>
-            <artifactId>spring-cloud-starter-tencent-polaris-config</artifactId><!--配置中心-->
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2021.0.1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.tencent.cloud</groupId>
-            <artifactId>spring-cloud-starter-tencent-polaris-discovery</artifactId><!--服务发现-->
-        </dependency>
-        <dependency>
-            <groupId>com.tencent.cloud</groupId>
-            <artifactId>spring-cloud-starter-tencent-polaris-ratelimit</artifactId><!--限流-->
-        </dependency>
-        <dependency>
-            <groupId>com.tencent.cloud</groupId>
-            <artifactId>spring-cloud-starter-tencent-polaris-circuitbreaker</artifactId><!--熔断-->
-        </dependency>
+
 
 
 
@@ -123,23 +110,10 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.tencent.cloud</groupId>
-                <artifactId>spring-cloud-tencent-dependencies</artifactId>
-                <version>${polaris.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>3.0.0</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
